@@ -1,0 +1,189 @@
+<!-- views/services.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Services</title>
+  <link rel="stylesheet" href="/css/services.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="ONETH.png" height="30px" width="30px" alt=" "> ONETH CORPORATION
+        </div>
+      <div class="nav-container">
+        <ul class="nav-links">
+        <li><button onclick="showService('land')"><i class="fas fa-map-marked-alt"></i> Land</button></li>
+        <li><button onclick="showService('renting')"><i class="fas fa-home"></i> House Renting</button></li>
+        <li><button onclick="showService('booking')"><i class="fas fa-hotel"></i> Hotel Booking</button></li>
+        <li><button onclick="showService('delivery')"><i class="fas fa-truck"></i> Delivery</button></li>
+      </ul>
+    </div>
+      <div id="service-content">
+        <div id="land" class="service-section">[Land Form Goes Here]</div>
+        <div id="renting" class="service-section hidden">[Renting Form Here]</div>
+        <div id="booking" class="service-section hidden">[Hotel Booking Form]</div>
+        <div id="delivery" class="service-section hidden">[Delivery Form]</div>
+      </div>
+    </nav>
+  </header>
+<div class="service-intro">
+  <h2>Explore Our Smart & Reliable Services</h2>
+  <p>We're here to help with everthing from finding a better place to sleep, land to own, or sending packages across the country.</p>
+</div>
+  <section class="intro">
+    <h1>Our Company is Delighted to Provide Quality Services</h1>
+    <p>Click the buttons above to explore Land, House Renting, Hotel Booking, and Delivery services.</p>
+  </section>
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1>Welcome to ONETH CORPORATION</h1>
+      <p>Your one-stop platform for land, housing, hospitality and delivery services</p>
+    </div>
+  </section>
+  <div class="service-card">
+    <i class="fas fa-map-marked-alt"></i>
+    <h2>Land Services</h2>
+    <p>Secure residential, commercial and farming land in top locations.</p>
+    <button onclick="showServices('land')">Explore</button>
+  </div>
+
+  <section class="services">
+    <div id="land" class="service-section active">
+      <i class="fas fa-map-marked-alt"></i>
+      <h2>Land Services</h2>
+      <p>Buy or sell land in different regions easily.</p>
+        <form action="/submit-land" method="POST">
+            <label>Type of Land:</label>
+            <select name="landType" required>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="farm">Farm</option>
+            </select>
+          
+            <label>Location:</label>
+            <input type="text" name="location" placeholder="e.g. Dodoma, Tanzania" required>
+          
+            <label>Budget Range (Tsh):</label>
+            <input type="number" name="budget" required>
+          
+            <label>Additional Info:</label>
+            <textarea name="landNotes" rows="3" placeholder="Any specific requirements?"></textarea>
+          
+            <button type="submit">Submit Land Request</button>
+          </form>
+    </div>
+
+    <div id="renting" class="service-section">
+      <i class="fas fa-home"></i>
+      <h2>House Renting</h2>
+      <p>Find available rental rooms before arriving in a new area.</p>
+      <form action="/submit-renting" method="POST">
+        <label>Type of Room:</label>
+        <select name="roomType" required>
+          <option value="single">Single Room</option>
+          <option value="self-contained">Self Contained</option>
+          <option value="family">Family House</option>
+        </select>
+      
+        <label>Preferred Region:</label>
+        <input type="text" name="region" required>
+      
+        <label>Move-in Date:</label>
+        <input type="date" name="moveInDate" required>
+      
+        <label>Budget Per Month (Tsh):</label>
+        <input type="number" name="rentBudget" required>
+      
+        <button type="submit">Request a Room</button>
+    </div>
+
+    <div id="booking" class="service-section">
+      <i class="fas fa-hotel"></i>
+      <h2>Hotel Booking</h2>
+      <p>Book hotel rooms easily and quickly.</p>
+      <form action="/submit-booking" method="POST">
+        <label>Destination:</label>
+        <input type="text" name="destination" required>
+      
+        <label>Check-in Date:</label>
+        <input type="date" name="checkIn" required>
+      
+        <label>Check-out Date:</label>
+        <input type="date" name="checkOut" required>
+      
+        <label>Room Type:</label>
+        <select name="hotelRoomType">
+          <option value="single">Single</option>
+          <option value="double">Double</option>
+          <option value="suite">Suite</option>
+        </select>
+      
+        <label>Number of Guests:</label>
+        <input type="number" name="guests" min="1" required>
+      
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+
+    <div id="delivery" class="service-section">
+      <i class="fas fa-shipping-fast"></i>
+      <h2>Delivery Services</h2>
+      <p>Deliver anything anywhere.</p>
+      <form action="/submit-delivery" method="POST">
+        <label>Pickup Location:</label>
+        <input type="text" name="pickup" required>
+      
+        <label>Delivery Location:</label>
+        <input type="text" name="delivery" required>
+      
+        <label>Type of Item:</label>
+        <input type="text" name="itemType" placeholder="e.g. Documents, Groceries, etc." required>
+      
+        <label>Weight (kg):</label>
+        <input type="number" name="weight" step="0.1" required>
+      
+        <label>Preferred Delivery Date:</label>
+        <input type="date" name="deliveryDate" required>
+      
+        <button type="submit">Request Delivery</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="/js/services.js">
+  function showService(id) {
+    const sections = document.querySelectorAll('.service-section');
+    sections.forEach(section => section.classList.add('hidden'));
+
+    const selected = document.getElementById(id);
+    if (selected) {
+      selected.classList.remove('hidden');
+      selected.classList.add('active');
+    }
+  }
+  </script>
+  <script>
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const action = form.getAttribute('action');
+        const formData = new FormData(form);
+  
+        fetch(action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.text())
+        .then(msg => alert(msg))
+        .catch(err => alert("Something went wrong."));
+      });
+    });
+  </script>
+  
+</body>
+</html>

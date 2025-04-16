@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login-page.css"> <!-- Link to your main CSS file -->
+</head>
+<body> 
+    <div class="background-animation"></div>
+    
+    <div class="login-container">
+       <form class="login-form" action="/login" method="POST">
+         <div class="logo-container">
+           <img src="ONETH.png" height="30px" width="30px" alt=" " />
+          </div>
+        <h2>Login</h2>
+        
+         <div class="input-group center-label">
+           <label for="email">Email</label>
+           <input type="email" name="email" required />
+         </div>
+
+         <div class="input-group center-label">
+            <label for="password">Password</label>
+            <input type="password" name="password" required />
+         </div>
+
+         <button type="submit">Login</button>
+
+        <div class="login-links">
+            <a href="/forgot-password">Forgot Password?</a>
+            <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+   </form>
+  </div>
+</body>
+</html>
