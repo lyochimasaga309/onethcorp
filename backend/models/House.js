@@ -7,4 +7,4 @@ const houseSchema = new mongoose.Schema({
   image: String,
 });
 
-module.exports = mongoose.model("House", houseSchema);
+module.exports = mongoose.model("house", houseSchema);
