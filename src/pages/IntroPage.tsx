@@ -23,7 +23,7 @@ export default function IntroPage() {
       return;
     }
 
-    if (!isLogin && password ! == confirmPassword) {
+    if (!isLogin && password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
@@ -31,16 +31,17 @@ export default function IntroPage() {
     const endpoint = isLogin
       ? "http://localhost:5000/api/auth/login"
       : "http://localhost:5000/api/auth/signup";
-
+ 
+    const cleanedPassword = password.trim();
     const payload = isLogin
-      ? { email, password }
-      : { fullName, email, password };
+      ? { email, password: cleanedPassword }
+      : { fullName, email, password: cleanedPassword, confirmPassword };
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
@@ -99,7 +100,7 @@ export default function IntroPage() {
             Powered by ONETH CORP.
           </p>
           <p className="mt-2 max-w-xl mx-auto text-white text-sm md:text-lg font-light">
-            Trusted soluions for land acquisiton, Property management, house renting, hotel booking, and delivery Services across Tanzania.
+            Trusted solutions for land acquisiton, Property management, house renting, hotel booking, and delivery Services across Tanzania.
           </p>
           <div className="flex justify-center space-x-6 mt-6">
             <Button className="bg-orange-600 hover:bg-red-700 px-6 py-3 text-lg font-bold">Explore</Button>

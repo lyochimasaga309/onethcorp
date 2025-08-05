@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { IconContext } from "react-icons";
+import { IconType } from "react-icons";
 import {
   FaHome,
   FaHotel,
@@ -48,7 +49,7 @@ export default function DashboardPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
            <Card
-             icon={<FaHome className="text-orange-500 text-2xl mx-auto mb-4" any />}
+             icon={<FaHome className="text-orange-500 text-2xl mx-auto mb-4" />}
              title="House Renting"
              desc="Browse and manage rental properties."
              onClick={() => navigate("/house-renting")}

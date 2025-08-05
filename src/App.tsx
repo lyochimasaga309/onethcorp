@@ -8,8 +8,10 @@ import HouseRentingPage from "./pages/HouseRentingPage";
 import HotelBookingPage from "./pages/HotelBookingPage"
 import InvestorsPage from "./pages/InvestorsPage"
 import DeliveryPage from "./pages/DeliveryPage"
+import DeliveryRequestPage from "@/pages/DeliveryRequestPage";
 import AddHouseForm from "./pages/AddHouseForm";
 import HouseDetailsPage from "./pages/HouseDetailsPage";
+import HotelDetailsPage from "./pages/HotelDetailsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { PropertyCard } from "./components/PropertyCard"
 
@@ -24,8 +26,10 @@ function App() {
       <Route path="/house/:id" element={<HouseDetailsPage />} />
       <Route path="/admin/add-house" element={<AddHouseForm />} />
       <Route path="/hotel-booking" element={<HotelBookingPage />} />
+      <Route path="/hotel/:id" element={<HotelDetailsPage />} />
       <Route path="/Investors" element={<InvestorsPage />} />
       <Route path="/delivery" element={<DeliveryPage />} />
+      <Route path="/delivery/:id/request" element={<DeliveryRequestPage />} />
     </Routes>
   );
 }

@@ -1,6 +1,28 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
+interface CardProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  onClick?: () => void;
+}
+
+export default function ({ icon, title, desc, onClick }: CardProps) {
+  return (
+    <div
+      onClick={onClick}
+      className="cursor-pointer bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+    >
+      <div className="text-center">
+        {icon}
+        <h2 className="text-lg font-bold text-gray-800">{title}</h2>
+        <p className="text-sm text-gray-600">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>

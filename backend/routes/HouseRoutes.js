@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const House = require("./models/House");
+const House = require("../models/house");
 
 // GET all houses
 router.get("/", async (req, res) => {
   try {
-    const houses = await House.find();
+    const houses = await house.find();
     res.json(houses);
   } catch (err) {
     res.status(500).json({ error: err.message });

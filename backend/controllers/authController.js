@@ -5,30 +5,34 @@ const User = require('../models/User');
 exports.signup = async (req, res) => {
   try {
     console.log("Received request body:", req.body);
-    const { fullName, email, password, confirmPassword } = req.body;
+    const { fullName, email, password, } = req.body;
 
-    if (!password || !confirmPassword || password !== confirmPassword) {
-      return res.status(400).json({ message: 'Password mismatch' });
+    if (!password) {
+      return res.status(400).json({ message: 'Password required' });
     }
 
-    const existing = await User.findOne({ email });
-
-    if (existing) {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
       return res.status(400).json({ message: 'Email already in use' });
     }
 
     // Hash password here (only after validating no existing user)
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const newUser = new User({ fullName, email, password: hashedPassword });
+
+    console.log('Saving user to database...');
+    await newUser.save();
+    console.log('✅ User saved successfully!');
+    console.log("Saving password:", password);
+
 
     await newUser.save();
     console.log('New user created:', newUser);
-    return res.status(201).json({ message: 'User created successfully' });
+    return res.status(201).json({ message: 'Signup successfully' });
 
   } catch (err) {
     console.error('Signup error:', err);
-    return res.status(500).json({ message: 'Signup failed', error: err.message });
+    return res.status(500).json({ message: 'Server error' });
   }
 };
 
@@ -42,12 +46,19 @@ exports.login = async (req, res) => {
     console.log('User found:', user);
 
     if (!user) {
+      console.log("No user with that email");
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
+    console.log("Entered password:", password);
+    console.log("Stored hash:", user.password);
+
     // Compare raw password with hashed password in DB
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("Password match:", isMatch);
+
     if (!isMatch) {
+      console.log("Password incorrect");
       return res.status(401).json({ message: 'Invalid credentials'});
     }
 

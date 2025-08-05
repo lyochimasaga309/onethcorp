@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { IconContext } from "react-icons";
 import { FaMapMarkerAlt, FaMoneyBillWave } from "react-icons/fa";
 
 const houses = [
