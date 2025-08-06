@@ -112,7 +112,7 @@ export default function HouseRentingPage() {
       {/* Navbar */}
       <header className="flex justify-between items-center px-6 py-4 bg-black text-white shadow-lg">
         <div className="flex items-center space-x-3">
-          <FaHome className="text-orange-500 text-2xl" />
+          <FaHome size="text-orange-500 text-2xl" />
           <h1 className="text-xl font-extrabold tracking-wide">
             HOUSE <span className="text-yellow-400">RENTING</span>
           </h1>
@@ -285,7 +285,7 @@ export default function HouseRentingPage() {
                 <div className="relative">
                   <img src={house.image} alt={house.title} className="w-full h-48 object-cover" />
                   <div className="absolute top-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded flex items-center">
-                    <FaCamera className="mr-1" /> {house.photos}
+                    <FaCamera size="mr-1" /> {house.photos}
                   </div>
                 </div>
                 <div className="p-4">
@@ -298,7 +298,7 @@ export default function HouseRentingPage() {
                     <button className="bg-orange-500 text-white px-4 py-2 rounded text-sm hover:bg-orange-600">
                       View Details
                     </button>
-                    <FaRegBookmark className="text-gray-400 hover:text-orange-500 cursor-pointer" />
+                    <FaRegBookmark size="text-gray-400 hover:text-orange-500 cursor-pointer" />
                   </div>
                 </div>
               </div>
