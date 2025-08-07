@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const houseRoutes = require("./routes/houseRoutes");
+const houseRoutes = require("../routes/houseRoutes");
 
 // GET all houses
 router.get("/", async (req, res) => {
