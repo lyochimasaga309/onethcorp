@@ -31,16 +31,16 @@ export default function IntroPage() {
     }
 
     const endpoint = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/signup";
+      ? `${API}/api/auth/login`
+      : `${API}/api/auth/signup`;
  
     const cleanedPassword = password.trim();
     const payload = isLogin
-      ? { email, password: cleanedPassword }
-      : { fullName, email, password: cleanedPassword, confirmPassword };
+      ? { email, password: password.trim() }
+      : { fullName, email, password: password.trim(), confirmPassword };
 
     try {
-      const res = await fetch(`${API}/api/auth/login`, {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -49,17 +49,17 @@ export default function IntroPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        console.error("Signup failed:", data);
-        alert(data.message || "Signup failed.");
+        console.error("Auth failed:", data);
+        alert(data.message || "Authentication failed.");
         return;
       } 
-        console.log("Signup Success:", data);
-        alert("Signup successful!");
+        console.log("Success:", data);
+        alert(`${isLogin ? "Login" : "Signup"} successful!`);
         navigate("/dashboard");
       }
 
      catch (error) {
-      console.error("Error during signup:", error);
+      console.error("Error during auth:", error);
       alert("An error occurred. Check console for details.");
     }
   };
