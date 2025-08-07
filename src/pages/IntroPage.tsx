@@ -43,23 +43,24 @@ export default function IntroPage() {
       const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        console.error("Failed response:", data);
-        alert(`${isLogin ? "Login" : "Signup"} failed: ${data.message || "Unknown error"}`);
-      } else {
-        console.log("Success:", data);
-        localStorage.setItem("token", data.token || "mock-token");
+        console.error("Signup failed:", data);
+        alert(data.message || "Signup failed.");
+        return;
+      } 
+        console.log("Signup Success:", data);
+        alert("Signup successful!");
         navigate("/dashboard");
       }
 
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred.");
+     catch (error) {
+      console.error("Error during signup:", error);
+      alert("An error occurred. Check console for details.");
     }
   };
 

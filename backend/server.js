@@ -1,4 +1,5 @@
 require('dotenv').config({ path: __dirname + '/.env' });
+console.log("__dirname:", __dirname);
 
 const express = require('express');
 const connectDB = require('./config/db');
