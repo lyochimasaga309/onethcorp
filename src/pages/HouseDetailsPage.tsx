@@ -48,11 +48,11 @@ export default function HouseDetailsPage() {
       <img src={house.image} alt={house.title} className="w-full h-64 object-cover rounded-lg mb-4" />
       <h1 className="text-3xl font-bold mb-2">{house.title}</h1>
       <div className="text-gray-600 flex items-center gap-2 mb-2">
-        <FaMapMarkerAlt className="text-orange-500" />
+        <FaMapMarkerAlt size="text-orange-500" />
         {house.location}
       </div>
       <div className="text-gray-600 flex items-center gap-2 mb-4">
-        <FaMoneyBillWave className="text-green-500" />
+        <FaMoneyBillWave size="text-green-500" />
         {house.price}
       </div>
       <p className="mb-6 text-gray-700">{house.description}</p>

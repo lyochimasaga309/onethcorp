@@ -33,13 +33,13 @@ const PropertyManagement = () => {
       {/* Header */}
       <header className="bg-black text-white py-4 px-6 shadow-md flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <FaBuilding className="text-yellow-500 text-2xl" />
+          <FaBuilding size="text-yellow-500 text-2xl" />
           <h1 className="text-xl font-extrabold tracking-wide text-yellow-400">
             ONETH PROPERTY MANAGEMENT
           </h1>
         </div>
         <Button className="bg-orange-500 hover:bg-orange-600 text-white hidden sm:flex">
-          <FaPlus className="mr-2" />
+          <FaPlus size="mr-2" />
           Add New Property
         </Button>
       </header>
@@ -71,7 +71,7 @@ const PropertyManagement = () => {
                     {property.title}
                   </h3>
                   <p className="text-sm text-gray-600 flex items-center">
-                    <FaMapMarkerAlt className="mr-2 text-blue-500" />
+                    <FaMapMarkerAlt size="mr-2 text-blue-500" />
                     {property.location}
                   </p>
                   <p className="mt-2 text-sm">

@@ -13,12 +13,12 @@ export default function IntroPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const API = import.meta.env.VITE_API_URL;
+  const API = "https://onethcorp.onrender.com/api";
+  console.log("API Base URL(hardcoded):", API);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const formData = { fullName, email, password, confirmPassword };
 
     if (!email || !password || (!isLogin && (!fullName || !confirmPassword))) {
       alert("Please fill all required fields");
@@ -30,35 +30,51 @@ export default function IntroPage() {
       return;
     }
 
+    if (!API) {
+      console.error("API URL is undefined.Check your .env.local!");
+      alert("API URL is not defined. Contact admin.");
+      return;
+    }
+
     const endpoint = isLogin
-      ? `${API}/api/auth/login`
-      : `${API}/api/auth/signup`;
+      ? `${API}/auth/login`
+      : `${API}/auth/signup`;
+    console.log("Fetching endpoint:", endpoint);
  
-    const cleanedPassword = password.trim();
     const payload = isLogin
       ? { email, password: password.trim() }
       : { fullName, email, password: password.trim(), confirmPassword };
+
+    console.log("Final API variable:", API);
+    console.log("Final endpoint:", endpoint);
 
     try {
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.error("Server returned non-JSON response:", text);
+        alert("Server returned invalid response. Check console for details.");
+        return;
+      }
 
       if (!res.ok) {
         console.error("Auth failed:", data);
         alert(data.message || "Authentication failed.");
         return;
       } 
+
         console.log("Success:", data);
         alert(`${isLogin ? "Login" : "Signup"} successful!`);
         navigate("/dashboard");
-      }
-
-     catch (error) {
+      } catch (error) {
       console.error("Error during auth:", error);
       alert("An error occurred. Check console for details.");
     }
@@ -182,7 +198,7 @@ export default function IntroPage() {
               P.O. Box 585<br />
               Geita, Tanzania<br />
               Phone: +255 747 015 698<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+255 682 986 773<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+255 682 986 773<br />
               Email: onethcorporation@gmail.com
             </p>
           </div>

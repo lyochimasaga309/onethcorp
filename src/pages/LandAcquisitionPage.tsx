@@ -35,7 +35,7 @@ export default function LandAcquisitionPage() {
       {/* Header */}
       <header className="bg-black text-white py-4 px-6 shadow-md flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <FaLandmark className="text-yellow-400 text-2xl" />
+          <FaLandmark size="text-yellow-400 text-2xl" />
           <h1 className="text-xl font-bold text-yellow-500">
             ONETH | Land Acquisition
           </h1>
@@ -60,7 +60,7 @@ export default function LandAcquisitionPage() {
 
         {/* Search / Filter */}
         <section className="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 max-w-2xl">
-          <FaSearch className="text-blue-500" />
+          <FaSearch size="text-blue-500" />
           <input
             type="text"
             placeholder="Search by location, size, or region..."
@@ -88,15 +88,15 @@ export default function LandAcquisitionPage() {
         <div className="p-4">
           <h3 className="font-bold text-lg">{land.title}</h3>
           <p className="text-sm text-gray-600 flex items-center">
-            <FaMapMarkedAlt className="mr-2 text-blue-500" />
+            <FaMapMarkedAlt size="mr-2 text-blue-500" />
             {land.location}
           </p>
           <p className="text-sm mt-1">
-            <FaTree className="inline mr-2 text-green-600" />
+            <FaTree size="inline mr-2 text-green-600" />
             {land.size}
           </p>
           <p className="text-sm mt-1">
-            <FaDollarSign className="inline mr-2 text-yellow-500" />
+            <FaDollarSign size="inline mr-2 text-yellow-500" />
             {land.price}
           </p>
           <p

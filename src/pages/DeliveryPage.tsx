@@ -38,7 +38,7 @@ export default function DeliveryPage() {
           {/* Navbar */}
           <header className="flex justify-between items-center px-6 py-4 bg-black text-white shadow-lg">
             <div className="flex items-center space-x-3">
-              <FaTruck className="text-blue-400 text-2xl" />
+              <FaTruck size="text-blue-400 text-2xl" />
               <h1 className="text-xl font-extrabold tracking-wide">
                 DELIVERY <span className="text-blue-400">SERVICES</span>
               </h1>
@@ -52,7 +52,7 @@ export default function DeliveryPage() {
           </header>
     <div className="p-8">
       <h1 className="text-3xl font-bold text-blue-600 mb-6 flex items-center gap-3">
-        <FaTruck className="text-blue-600" /> Delivery list
+        <FaTruck size="text-blue-600" /> Delivery list
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

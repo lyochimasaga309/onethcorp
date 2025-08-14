@@ -156,7 +156,7 @@ export default function HotelBookingPage() {
       {/* Navbar */}
       <header className="flex justify-between items-center px-6 py-4 bg-black text-white shadow-lg">
         <div className="flex items-center space-x-3">
-          <FaHotel className="text-yellow-400 text-2xl" />
+          <FaHotel size="text-yellow-400 text-2xl" />
           <h1 className="text-xl font-extrabold tracking-wide">
             HOTEL <span className="text-yellow-400">BOOKING</span>
           </h1>
@@ -182,7 +182,7 @@ export default function HotelBookingPage() {
           onClick={handleSearch}
           className="bg-yellow-500 p-3 rounded-lg hover:bg-yellow-600"
         >
-          <FaSearch className="text-white" />
+          <FaSearch size="text-white" />
         </button>
       </div>
 
@@ -209,7 +209,7 @@ export default function HotelBookingPage() {
         >
           Book
         </button>
-        <FaRegBookmark className="text-gray-400 hover:text-yellow-500 cursor-pointer ml-2" />
+        <FaRegBookmark size="text-gray-400 hover:text-yellow-500 cursor-pointer ml-2" />
       </div>
     }
   />

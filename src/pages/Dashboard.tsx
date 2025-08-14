@@ -49,7 +49,7 @@ export default function DashboardPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
            <Card
-             icon={<FaHome className="text-orange-500 text-2xl mx-auto mb-4" />}
+             icon={<FaHome size="text-orange-500 text-2xl mx-auto mb-4" />}
              title="House Renting"
              desc="Browse and manage rental properties."
              onClick={() => navigate("/house-renting")}
@@ -57,7 +57,7 @@ export default function DashboardPage() {
            />
 
             <Card
-              icon={<FaHotel className="text-yellow-500 mx-auto mb-4" />}
+              icon={<FaHotel size="text-yellow-500 mx-auto mb-4" />}
               title="Hotel Booking"
               desc="Book hotels or lodge rooms in your area."
               onClick={() => navigate("/hotel-booking")}
@@ -65,7 +65,7 @@ export default function DashboardPage() {
             />
 
             <Card
-              icon={<FaTruck className="text-blue-600 mx-auto mb-4" />}
+              icon={<FaTruck size="text-blue-600 mx-auto mb-4" />}
               title="Delivery Services"
               desc="Order or schedule item delivery."
               onClick={() => navigate("/delivery")}
@@ -73,7 +73,7 @@ export default function DashboardPage() {
             />
 
             <Card
-              icon={<FaBuilding className="text-purple-600 mx-auto mb-4" />}
+              icon={<FaBuilding size="text-purple-600 mx-auto mb-4" />}
               title="Property Management"
               desc="Manage owned/managed properties, contracts & tenants."
               onClick={() => navigate("/property-management")}
@@ -81,7 +81,7 @@ export default function DashboardPage() {
             />
 
             <Card
-              icon={<FaBriefcase className="text-red-600 mx-auto mb-4" />}
+              icon={<FaBriefcase size="text-red-600 mx-auto mb-4" />}
               title="Investors & Reports"
               desc="Invest, view & manage reports, feedback and share contracts."
               onClick={() => navigate("/investors")}
@@ -89,7 +89,7 @@ export default function DashboardPage() {
             />
 
             <Card
-              icon={<FaMapMarkedAlt className="text-green-600 mx-auto mb-4" />}
+              icon={<FaMapMarkedAlt size="text-green-600 mx-auto mb-4" />}
               title="Land Acquisition"
               desc="Acquire, verify, and track land opportunities."
               onClick={() => navigate("/land-acquisition")}

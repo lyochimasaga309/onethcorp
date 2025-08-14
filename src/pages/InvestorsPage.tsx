@@ -20,7 +20,7 @@ export default function InvestorsPage() {
       {/* Header */}
       <header className="bg-black text-white px-6 py-4 shadow-md flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <FaUserTie className="text-yellow-400 text-2xl" />
+          <FaUserTie size="text-yellow-400 text-2xl" />
           <h1 className="text-xl font-bold text-yellow-500">
             ONETH | Investor Relations & Reports
           </h1>
@@ -47,17 +47,17 @@ export default function InvestorsPage() {
         {/* Stats */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-md text-center">
-            <FaMoneyBillWave className="text-3xl text-green-500 mb-2 mx-auto" />
+            <FaMoneyBillWave size="text-3xl text-green-500 mb-2 mx-auto" />
             <h3 className="font-bold text-xl">TZS 120M+</h3>
             <p className="text-gray-600 text-sm">Capital Raised</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-md text-center">
-            <FaUserTie className="text-3xl text-yellow-500 mb-2 mx-auto" />
+            <FaUserTie size="text-3xl text-yellow-500 mb-2 mx-auto" />
             <h3 className="font-bold text-xl">18 Investors</h3>
             <p className="text-gray-600 text-sm">Current Partners</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-md text-center">
-            <FaHandshake className="text-3xl text-blue-500 mb-2 mx-auto" />
+            <FaHandshake size="text-3xl text-blue-500 mb-2 mx-auto" />
             <h3 className="font-bold text-xl">35%</h3>
             <p className="text-gray-600 text-sm">Equity Offered</p>
           </div>
@@ -72,14 +72,14 @@ export default function InvestorsPage() {
             <li className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm">
               <span>Company Profile.pdf</span>
               <Button className="bg-blue-500 hover:bg-blue-600 text-white text-sm">
-                <FaFileDownload className="mr-2" />
+                <FaFileDownload size="mr-2" />
                 Download
               </Button>
             </li>
             <li className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm">
               <span>Investment Terms.docx</span>
               <Button className="bg-blue-500 hover:bg-blue-600 text-white text-sm">
-                <FaFileDownload className="mr-2" />
+                <FaFileDownload size="mr-2" />
                 Download
               </Button>
             </li>
@@ -95,17 +95,17 @@ export default function InvestorsPage() {
           {/* Summary Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             <div className="bg-white p-5 rounded-xl shadow-md text-center">
-              <FaChartBar className="text-3xl text-orange-500 mx-auto mb-2" />
+              <FaChartBar size="text-3xl text-orange-500 mx-auto mb-2" />
               <h3 className="text-xl font-bold">TZS 820M</h3>
               <p className="text-sm text-gray-600">Total Revenue (2025)</p>
             </div>
             <div className="bg-white p-5 rounded-xl shadow-md text-center">
-              <FaHome className="text-3xl text-blue-500 mx-auto mb-2" />
+              <FaHome size="text-3xl text-blue-500 mx-auto mb-2" />
               <h3 className="text-xl font-bold">35</h3>
               <p className="text-sm text-gray-600">Active Rentals</p>
             </div>
             <div className="bg-white p-5 rounded-xl shadow-md text-center">
-              <FaHome className="text-3xl text-red-500 mx-auto mb-2" />
+              <FaHome size="text-3xl text-red-500 mx-auto mb-2" />
               <h3 className="text-xl font-bold">15</h3>
               <p className="text-sm text-gray-600">Vacant Properties</p>
             </div>

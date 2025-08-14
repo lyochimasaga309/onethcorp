@@ -1,21 +1,29 @@
-require('dotenv').config({ path: __dirname + '/.env' });
-console.log("__dirname:", __dirname);
+require('dotenv').config();
+
+console.log("MONGO_URI from .env.local:", process.env.MONGO_URI);
 
 const express = require('express');
-const connectDB = require('./config/db');
 const cors = require('cors');
-const authRoutes = require('./routes/auth');
+const mongoose = require('mongoose');
+
+const authRoutes = require('./routes/authRoutes');
 const houseRoutes = require("./routes/houseRoutes");
 
 const app = express();
-connectDB(); // ← one clean connection here
 
-app.use("/api/houses", houseRoutes);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+
 
 app.use(cors());
 app.use(express.json());
+
 app.use('/api/auth', authRoutes);
-app.use("/api/houses", houseRoutes);
+app.use('/api/houses', houseRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend is working! Ready to accept requests.");
@@ -23,5 +31,5 @@ app.get("/", (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on http://localhost: ${5000}`));
+app.listen(PORT, () => console.log(`Server running on http://localhost: ${PORT}`));
 
