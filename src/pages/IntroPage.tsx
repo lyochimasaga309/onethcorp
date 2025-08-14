@@ -9,45 +9,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function IntroPage() {
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useState(true);
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const API = "https://onethcorp.onrender.com/api";
-  console.log("API Base URL(hardcoded):", API);
-
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!email || !password || (!isLogin && (!fullName || !confirmPassword))) {
-      alert("Please fill all required fields");
-      return;
-    }
-
-    if (!isLogin && password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-
-    try {
-    const data = isLogin
-      ? await login(email, password)
-      : await signup(fullName, email, password, confirmPassword);
-    
-    if (data.message) alert(data.message);
-    if (isLogin && data.userId) navigate("/dashboard");
-
-    console.log("Success:", data);
-    alert(`${isLogin ? "Login" : "Signup"} successful!`);
-    navigate("/dashboard");
-  } catch (err) {
-    console.error("Auth error:", err);
-    alert("Authentication failed. Check console.");
-   }
- };
 
   return (
     <>
@@ -90,74 +51,24 @@ export default function IntroPage() {
           <p className="mt-2 max-w-xl mx-auto text-white text-sm md:text-lg font-light">
             Trusted solutions for land acquisiton, Property management, house renting, hotel booking, and delivery Services across Tanzania.
           </p>
+          
+           {/* SIGNUP / LOGIN BUTTONS */}
           <div className="flex justify-center space-x-6 mt-6">
-            <Button className="bg-orange-600 hover:bg-red-700 px-6 py-3 text-lg font-bold">Explore</Button>
-            <Button className="bg-orange-600 hover:bg-red-700 px-6 py-3 text-lg font-bold">💬 Chat!</Button>
+            <Button onClick={() => navigate("/signup")} className="bg-green-600 hover:bg-green-700 px-6 py-3 text-lg font-bold text-white rounded">
+              Sign Up
+            </Button>
+            <Button onClick={() => navigate("/login")} className="bg-blue-600 hover:bg-blue-700 px-6 py-3 text-lg font-bold text-white rounded">
+              Login
+            </Button>
           </div>
         </div>
-
-        {/* FLOATING LOGIN / SIGNUP BOX */}
-        <div className="absolute top-20 right-8 bg-white shadow-xl rounded-xl w-80 p-6 z-10">
-          <h2 className="text-xl font-bold mb-4 text-gray-800 text-center">
-            {isLogin ? "Login" : "Sign Up"}
-          </h2>
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            {!isLogin && (
-              <Input
-                name="fullName"
-                id="fullName"
-                autoComplete="name"
-                placeholder="Full Name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            )}
-            <Input
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              type="password"
-              name="password"
-              id="password"
-              autoComplete={isLogin ? "current-password"  : "new-password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {!isLogin && (
-              <Input
-                type="password"
-                name="confirmPassword"
-                id="confirmPassword"
-                autoComplete="new-password"
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            )}
-            <Button className="w-full bg-indigo-600 text-white" type="submit">
-              {isLogin ? "Login" : "Create Account"}
-            </Button>
-          </form>
-          <p className="text-center text-sm mt-4 text-gray-600">
-            {isLogin ? "New here?" : "Already have an account?"}
-            <button
-              type="button"
-              className="text-blue-600 font-medium ml-1"
-              onClick={() => setIsLogin(!isLogin)}
-            >
-              {isLogin ? "Sign Up" : "Login"}
-            </button>
-          </p>
-        </div>
+        
+        {/* FLOATING CHAT BUTTON */}
+        <Button className="fixed bottom-8 right-8 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full shadow-lg z-20">
+          💬 Chat!
+        </Button>
       </div>
-
+      
       {/* FOOTER */}
       <footer className="bg-gray-900 text-gray-300 py-10 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
