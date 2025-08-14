@@ -36,6 +36,9 @@ export default function IntroPage() {
     const data = isLogin
       ? await login(email, password)
       : await signup(fullName, email, password, confirmPassword);
+    
+    if (data.message) alert(data.message);
+    if (isLogin && data.userId) navigate("/dashboard");
 
     console.log("Success:", data);
     alert(`${isLogin ? "Login" : "Signup"} successful!`);
