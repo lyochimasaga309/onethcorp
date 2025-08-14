@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/authRoutes');
-const houseRoutes = require("./routes/houseRoutes");
+const authRoutes = require('./routes/authRoutes.js');
+const houseRoutes = require("./routes/houseRoutes.js");
 
 require("dotenv").config();
 

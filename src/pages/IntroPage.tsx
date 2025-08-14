@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { login, signup } from "@/api";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function IntroPage() {
   const navigate = useNavigate();
@@ -31,55 +32,19 @@ export default function IntroPage() {
       return;
     }
 
-    if (!API) {
-      console.error("API URL is undefined.Check your .env.local!");
-      alert("API URL is not defined. Contact admin.");
-      return;
-    }
-
-    const endpoint = isLogin
-      ? `${API}/auth/login`
-      : `${API}/auth/signup`;
-    console.log("Fetching endpoint:", endpoint);
- 
-    const payload = isLogin
-      ? { email, password: password.trim() }
-      : { fullName, email, password: password.trim(), confirmPassword };
-
-    console.log("Final API variable:", API);
-    console.log("Final endpoint:", endpoint);
-
     try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    const data = isLogin
+      ? await login(email, password)
+      : await signup(fullName, email, password, confirmPassword);
 
-      const text = await res.text();
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        console.error("Server returned non-JSON response:", text);
-        alert("Server returned invalid response. Check console for details.");
-        return;
-      }
-
-      if (!res.ok) {
-        console.error("Auth failed:", data);
-        alert(data.message || "Authentication failed.");
-        return;
-      } 
-
-        console.log("Success:", data);
-        alert(`${isLogin ? "Login" : "Signup"} successful!`);
-        navigate("/dashboard");
-      } catch (error) {
-      console.error("Error during auth:", error);
-      alert("An error occurred. Check console for details.");
-    }
-  };
+    console.log("Success:", data);
+    alert(`${isLogin ? "Login" : "Signup"} successful!`);
+    navigate("/dashboard");
+  } catch (err) {
+    console.error("Auth error:", err);
+    alert("Authentication failed. Check console.");
+   }
+ };
 
   return (
     <>
