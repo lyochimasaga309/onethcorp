@@ -1,6 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom";
-import AuthPage from "./pages/AuthPage";
+import AuthPage from "./components/AuthPage";
 import IntroPage from "./pages/IntroPage"
 import Dashboard from "./pages/Dashboard";
 import PropertyManagementPage from "./pages/PropertyManagementPage";
@@ -15,13 +15,15 @@ import HouseDetailsPage from "./pages/HouseDetailsPage";
 import HotelDetailsPage from "./pages/HotelDetailsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { PropertyCard } from "./components/PropertyCard"
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<IntroPage />} />
-      <Route path="/login" element={<AuthPage />} />
-      <Route path="/signup" element={<AuthPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/property-management" element={<PropertyManagementPage />} />
       <Route path="/land-acquisition" element={<LandAcquisitionPage />} />
