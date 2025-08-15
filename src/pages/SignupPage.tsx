@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AuthForm from "../components/AuthPage";
+import AuthForm from "../components/AuthForm";
 
 export default function SignupPage() {
   return (

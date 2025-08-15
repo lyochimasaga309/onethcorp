@@ -1,6 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom";
-import AuthPage from "./components/AuthPage";
+import AuthForm from "./components/AuthForm";
 import IntroPage from "./pages/IntroPage"
 import Dashboard from "./pages/Dashboard";
 import PropertyManagementPage from "./pages/PropertyManagementPage";
