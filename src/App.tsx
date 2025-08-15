@@ -1,5 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom";
+import AuthPage from "./pages/AuthPage";
 import IntroPage from "./pages/IntroPage"
 import Dashboard from "./pages/Dashboard";
 import PropertyManagementPage from "./pages/PropertyManagementPage";
@@ -19,6 +20,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<IntroPage />} />
+      <Route path="/login" element={<AuthPage />} />
+      <Route path="/signup" element={<AuthPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/property-management" element={<PropertyManagementPage />} />
       <Route path="/land-acquisition" element={<LandAcquisitionPage />} />
