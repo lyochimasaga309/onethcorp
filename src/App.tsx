@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import AuthForm from "./components/AuthForm";
 import IntroPage from "./pages/IntroPage";
 import Dashboard from "./pages/Dashboard";
@@ -20,7 +20,6 @@ import SignupPage from "./pages/SignupPage";
 
 function App() {
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<IntroPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -37,7 +36,6 @@ function App() {
         <Route path="/delivery" element={<DeliveryPage />} />
         <Route path="/delivery/:id/request" element={<DeliveryRequestPage />} />
       </Routes>
-    </Router>
   );
 }
 
