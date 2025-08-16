@@ -22,19 +22,6 @@ function App() {
   return (
       <Routes>
         <Route path="/" element={<IntroPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/property-management" element={<PropertyManagementPage />} />
-        <Route path="/land-acquisition" element={<LandAcquisitionPage />} />
-        <Route path="/house-renting" element={<HouseRentingPage />} />
-        <Route path="/house/:id" element={<HouseDetailsPage />} />
-        <Route path="/admin/add-house" element={<AddHouseForm />} />
-        <Route path="/hotel-booking" element={<HotelBookingPage />} />
-        <Route path="/hotel/:id" element={<HotelDetailsPage />} />
-        <Route path="/investors" element={<InvestorsPage />} />
-        <Route path="/delivery" element={<DeliveryPage />} />
-        <Route path="/delivery/:id/request" element={<DeliveryRequestPage />} />
       </Routes>
   );
 }
