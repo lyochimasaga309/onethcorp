@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { IconContext } from "react-icons";
 import { IconType } from "react-icons";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import {
   FaHome,
   FaHotel,

@@ -66,4 +66,13 @@ export function PropertyFilters({ onFilter }: FilterProps) {
           id="type"
           placeholder="rent / sale"
           value={type}
-          onChange={(e) => setType(e.targ
+          onChange={(e) => setType(e.target.value)}
+        />
+      </div>
+
+      <div className="md:col-span-4 text-right">
+        <Button type="submit">Apply Filters</Button>
+      </div>
+    </form>
+  )
+}
